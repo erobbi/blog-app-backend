@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+    skip_before_action :authorize, only: [:index]
 
     def show
         blog = Blog.find_by(user_id: params[:user_id])
@@ -11,15 +12,26 @@ class BlogsController < ApplicationController
     end
 
     def create
-        user = User.find(session[:user_id])
-        blog = user.blogs.create!(blog_params)
-        # blog[:user_id] = session[:user_id]
+        blog = @current_user.blogs.create!(blog_params)
+        render json: blog, status: :created
+    end
 
-        if blog.valid?
-            render json: blog, status: :ok
-        else
-            render json: {error: "Not valid"}, status: :unprocessable_entity
-        end
+    def update
+        blog = Blog.find(params[:id])
+        blog.update!(blog_params)
+        render json: blog, status: :accepted
+    end
+
+    def destroy
+        blog = Blog.find(params[:id])
+        blog.destroy
+        head :no_content, status: :deleted
+    end
+
+    def increment_likes
+        blog = Blog.find(params[:id])
+        blog.update!(likes: blog.likes + 1)
+        render json: blog, status: accepted
     end
 
     private

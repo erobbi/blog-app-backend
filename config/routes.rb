@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :blogs, only: [:show, :index, :create]
+  resources :comments, only: [:destroy, :update, :create]
+  resources :blogs
   resources :users
 
   # custom route to manage new user
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   # get '/profile', to: 'users#profile'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  # increment likes when likebutton clicks
+  patch '/blogs/:id/like', to: 'blogs#increment_likes'
 end
