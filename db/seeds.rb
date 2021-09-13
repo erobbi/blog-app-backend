@@ -9,4 +9,3 @@ eli = User.create(
     birthdate: "the year 1", 
     email: "none of your business"
     )
-

@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
+    
     def create
-        @user = User.create!(user_params)
-        if @user.valid?
-            render json: { user: User.new(@user) }, status: :created
-        else
-            render json: { error: 'Failed to create user.' }, status: :unprocessable_entity
-        end
+        user = User.create!(user_params)
+        render json: user, status: :created
     end
 
     private
