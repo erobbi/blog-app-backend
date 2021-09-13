@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users
 
   # custom route to manage new user
-  post '/user', to: 'users#create'
+  post '/signup', to: 'users#create'
   # get '/profile', to: 'users#profile'
 end
