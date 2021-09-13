@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :blogs
   resources :comments
+  resources :blogs
   resources :users
 
   # custom route to manage new user
