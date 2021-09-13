@@ -11,18 +11,21 @@ class BlogsController < ApplicationController
     end
 
     def create
-        blog = Blog.create(blog_params)
+        user = User.find(session[:user_id])
+        blog = user.blogs.create!(blog_params)
+        # blog[:user_id] = session[:user_id]
+
         if blog.valid?
             render json: blog, status: :ok
         else
-            render json: {error: "Not valid"}, status: :not_valid
+            render json: {error: "Not valid"}, status: :unprocessable_entity
         end
     end
 
     private
 
     def blog_params
-        params.permit(:title, :content, :user_id, :img_url, :likes)
+        params.permit(:title, :content, :img_url, :user_id, :likes)
     end
 
 end
