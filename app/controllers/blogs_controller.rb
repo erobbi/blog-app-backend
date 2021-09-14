@@ -31,7 +31,13 @@ class BlogsController < ApplicationController
     def increment_likes
         blog = Blog.find(params[:id])
         blog.update!(likes: blog.likes + 1)
-        render json: blog, status: accepted
+        render json: blog, status: :accepted
+    end
+
+    def decrement_likes
+        blog = Blog.find(params[:id])
+        blog.update!(likes: blog.likes - 1)
+        render json: blog, status: :accepted
     end
 
     private
