@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
-    skip_before_action :authorize, only: [:index]
+    skip_before_action :authorize, only: [:index, :show]
 
     def show
-        blog = Blog.find_by(user_id: params[:user_id])
+        blog = Blog.find_by(id: params[:id])
         render json: blog, status: :ok
     end
 
@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
     private
 
     def blog_params
-        params.permit(:title, :content, :img_url, :user_id, :likes)
+        params.permit(:title, :description, :content, :img_url, :user_id, :likes)
     end
 
 end
