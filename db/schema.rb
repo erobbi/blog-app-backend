@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_170735) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
+    t.string "description"
     t.text "content"
     t.integer "user_id", null: false
     t.string "img_url"

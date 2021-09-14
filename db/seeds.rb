@@ -11,6 +11,7 @@ eli = User.create(
     )
     Blog.create(
     title: "Bruh moment",
+    description: "Let's talk about those 'Bruh' Moments",
     content: "The content of stuff",
     user_id: 1,
     img_url: "no thanks",
