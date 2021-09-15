@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
     def create
-        comment = @current_user.comments.create!(comment_params)
+        blog = @current_user.blogs.find(params[:blog_id])
+        comment = blog.comments.create!(comment_params)
         render json: comment, status: :created
     end
 
@@ -20,6 +21,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:id, :content)
+        params.permit(:blog_id, :content)
     end
 end
