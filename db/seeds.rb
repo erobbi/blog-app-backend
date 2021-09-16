@@ -24,7 +24,7 @@ eli = User.create(
     )
     Comment.create(
     content: "The Best blog Ever!!! Loved it!",
-    blog_id: 1
+    blog_id: 1, user_id: 2
     )
     Blog.create(
         title: "Tools that Every Coder Should Have",
@@ -39,15 +39,15 @@ eli = User.create(
         )
     Comment.create(
     content: "Eli's writing is phenomenal!!",
-    blog_id: 2
+    blog_id: 2, user_id: 2
     )
     Comment.create(
     content: "Can't wait to see his next post!",
-    blog_id: 2
+    blog_id: 2, user_id: 3
     )
     Comment.create(
     content: "Awesome!!!! Fun to read.",
-    blog_id: 2
+    blog_id: 2, user_id: 2
     )
 
 jessica = User.create(
@@ -71,7 +71,7 @@ jessica = User.create(
     )
     Comment.create(
     content: "How dare can you miss her post?",
-    blog_id: 3
+    blog_id: 3, user_id: 1
     )
     Blog.create(
         title: "Regex. Who are you?",
@@ -87,15 +87,15 @@ jessica = User.create(
         )
     Comment.create(
     content: "writing skill needs to be improved.",
-    blog_id: 4
+    blog_id: 4, user_id: 2
     )
     Comment.create(
     content: "So glad to find this post!",
-    blog_id: 4
+    blog_id: 4, user_id: 1
     )
     Comment.create(
     content: "So funny and easy to read!!!",
-    blog_id: 4
+    blog_id: 4, user_id: 3
     )
 
 
@@ -122,7 +122,7 @@ mark = User.create(
     )
     Comment.create(
     content: "Duh!!! Bruh!!! There is a moment!",
-    blog_id: 5
+    blog_id: 5, user_id: 2
     )
     Blog.create(
         title: "The Faker Gem— A Ruby Concept",
@@ -134,15 +134,15 @@ mark = User.create(
         )
     Comment.create(
     content: "How about writing something about Flatiron school?",
-    blog_id: 6
+    blog_id: 6, user_id: 3
     )
     Comment.create(
     content: "So impressed! Loved to read this post.",
-    blog_id: 6
+    blog_id: 6, user_id: 1
     )
     Comment.create(
     content: "Might need to stay up all night.",
-    blog_id: 6
+    blog_id: 6, user_id: 1
     )
 
     puts 'Done!!'
