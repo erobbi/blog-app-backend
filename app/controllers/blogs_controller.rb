@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index]
 
     def show
         blog = Blog.find_by(id: params[:id])
