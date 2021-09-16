@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   # increment likes when likebutton clicks
   patch '/blogs/:id/like', to: 'blogs#increment_likes'
   patch '/blogs/:id/dislike', to: 'blogs#decrement_likes'
+  delete '/allblogs/comments/:id', to: 'comments#destroy'
   # get '/profile', to: 'users#profile'
 end
