@@ -39,7 +39,7 @@ eli = User.create(
         )
     Comment.create(
     content: "Eli's writing is phenomenal!!",
-    blog_id: 2, user_id: 2
+    blog_id: 2, user_id: 3
     )
     Comment.create(
     content: "Can't wait to see his next post!",

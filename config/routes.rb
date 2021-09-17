@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :comments, only: [:destroy, :update, :create]
-  resources :blogs
+  resources :comments, only: [:destroy, :update, :create, :show, :index]
+  resources :blogs, only: [:update, :create, :show, :index]
   resources :users, only: [:destroy, :update]
 
   # custom route to manage new user
